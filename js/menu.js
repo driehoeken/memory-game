@@ -35,6 +35,7 @@ startBtn.addEventListener('click', () => {
                 }
             }).join('');
             result[attrName] = chosenBtn.textContent;
+            message.textContent = ``;
         }
         //if there is no clicked btn in wrap
         else{
