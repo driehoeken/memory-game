@@ -1,24 +1,33 @@
+:root{
+    --bg-color: rgb(7, 8, 26);
+    --text-color: #FFF;
+    --menu-bg-color: #FFF;
+    --orange: rgb(238, 128, 26);
+    --light-orange: rgb(235, 158, 85);
+    --gray: rgb(163, 163, 163);
+    --light-gray: rgb(179, 179, 179);
+}
 *{
     box-sizing: border-box;
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
 body{
-    background-color: rgb(7, 8, 26);
+    background-color: var(--bg-color);
     margin: 0;
     padding: 0;
     font-family: 'Varela Round', sans-serif;
 }
 header{
     text-align: center;
-    color: #FFF;
+    color: var(--text-color);
     font-size: 40px;
     margin: 40px 0 40px 0;
 }
 #menu{
     margin: auto;
     width: 500px;
-    background-color: #FFF;
+    background-color: var(--menu-bg-color);
     border-radius: 30px;
     padding: 30px;
 }
@@ -35,20 +44,24 @@ header{
     border: none;
     border-radius: 30px;
     height: 40px;
-    color: #FFF;
+    color: var(--text-color);
     font-family: 'Varela Round', sans-serif;
     cursor: pointer;
 }
 .menu-btn{
     flex: 1;
-    background-color: rgb(163, 163, 163);
+    background-color: var(--gray);
+    font-size: 15px;
 }
 .menu-btn:hover{
-    background-color: rgb(179, 179, 179);
+    background-color: var(--light-gray);
 }
 #menu-start{
-    background-color: rgb(238, 128, 26);
+    background-color: var(--orange);
     width: 100%;
     margin-top: 20px;
     font-size: 18px;
+}
+#menu-start:hover{
+    background-color: var(--light-orange);
 }
