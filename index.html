@@ -13,29 +13,33 @@
 
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- scripts -->
+    <script defer src="js/menu.js"></script>
 </head>
 <body>
     <header>memory</header>
     <div id="menu">
-        <p class="menu-label">Select theme</p>
-        <div class="menu-btns-wrap">
+        <p class="menu-label">Theme</p>
+        <div class="menu-btns-wrap theme">
             <button class="menu-btn">Numbers</button>
             <button class="menu-btn">Icons</button>
         </div>
         <p class="menu-label">Number of players</p>
-        <div class="menu-btns-wrap">
+        <div class="menu-btns-wrap number-of-players">
             <button class="menu-btn">1</button>
             <button class="menu-btn">2</button>
             <button class="menu-btn">3</button>
             <button class="menu-btn">4</button>
         </div>
         <p class="menu-label">Grid size</p>
-        <div class="menu-btns-wrap">
+        <div class="menu-btns-wrap grid-size">
             <button class="menu-btn">4x4</button>
             <button class="menu-btn">6x6</button>
             <button class="menu-btn">8x8</button>
         </div>
         <button id="menu-start">Start Game</button>
+        <p id="error-message"></p>
     </div>
 </body>
 </html>
