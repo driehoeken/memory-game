@@ -2,6 +2,7 @@ const btnsWraps = document.querySelectorAll('.menu-btns-wrap');
 const btns = document.querySelectorAll('.menu-btn');
 const startBtn = document.querySelector('#menu-start');
 const message = document.querySelector('#error-message');
+const menu = document.querySelector('#menu');
 
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -35,6 +36,9 @@ startBtn.addEventListener('click', () => {
                 }
             }).join('');
             result[attrName] = chosenBtn.textContent;
+            if(attrName === 'gridSize'){
+                result[attrName] = parseInt(chosenBtn.textContent[0]);
+            }
             message.textContent = ``;
         }
         //if there is no clicked btn in wrap
@@ -43,5 +47,8 @@ startBtn.addEventListener('click', () => {
             break;
         }
     };
-    return result;
+    menu.style.opacity = '0';
+    gameValues = result;
+    setTimeout(() => {menu.style.display = 'none';}, 500);
+    showGame();
 });

@@ -24,12 +24,14 @@ header{
     font-size: 40px;
     margin: 40px 0 40px 0;
 }
+/* Menu */
 #menu{
     margin: auto;
     width: 500px;
     background-color: var(--menu-bg-color);
     border-radius: 30px;
     padding: 30px;
+    transition: all 0.5s;
 }
 #menu :first-child{
     margin-block-start: 0;
@@ -70,4 +72,28 @@ header{
 }
 .clicked:hover{
     background-color: var(--light-orange);
+}
+
+/* Game */
+#game{
+    margin: auto;
+    display: none;
+    transition: all 0.5s;
+    opacity: 0;
+}
+/* Grid */
+#grid{
+    margin: auto;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.card{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #FFF;
 }
