@@ -37,6 +37,7 @@ startBtn.addEventListener('click', () => {
                 }
             }).join('');
             result[attrName] = chosenBtn.textContent;
+            
             if(attrName === 'gridSize'){
                 result[attrName] = parseInt(chosenBtn.textContent[0]);
             }

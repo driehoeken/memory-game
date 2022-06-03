@@ -8,3 +8,17 @@ const disappearAppear = function(outer, elToDis, elToApp, time){
     }, time);
     }
 }
+
+const howManyInArr = function(arr, x){
+    let count = 0;
+    arr.forEach(element => {
+        if(element === x){
+            count++;
+        }
+    });
+    return count;
+}
+
+const randomInt = function(min, max){
+    return Math.floor(Math.random() * (max)) + min;
+}
