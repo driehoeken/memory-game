@@ -3,6 +3,7 @@ const btns = document.querySelectorAll('.menu-btn');
 const startBtn = document.querySelector('#menu-start');
 const message = document.querySelector('#error-message');
 const menu = document.querySelector('#menu');
+const outer = document.querySelector('#outer');
 
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -47,8 +48,7 @@ startBtn.addEventListener('click', () => {
             break;
         }
     };
-    menu.style.opacity = '0';
     gameValues = result;
-    setTimeout(() => {menu.style.display = 'none';}, 500);
     showGame();
+    disappearAppear(outer, menu, gameDiv, 500);
 });

@@ -24,6 +24,16 @@ header{
     font-size: 40px;
     margin: 40px 0 40px 0;
 }
+#outer{
+    transition: all 0.5s;
+}
+.disappearing{
+    opacity: 0;
+    visibility: hidden;
+}
+.hidden{
+    display: none;
+}
 /* Menu */
 #menu{
     margin: auto;
@@ -31,7 +41,6 @@ header{
     background-color: var(--menu-bg-color);
     border-radius: 30px;
     padding: 30px;
-    transition: all 0.5s;
 }
 #menu :first-child{
     margin-block-start: 0;
@@ -77,9 +86,6 @@ header{
 /* Game */
 #game{
     margin: auto;
-    display: none;
-    transition: all 0.5s;
-    opacity: 0;
 }
 /* Grid */
 #grid{
