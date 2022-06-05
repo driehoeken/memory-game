@@ -3,4 +3,5 @@ let gameValues = {};
 
 const showGame = function(){
     createGrid(gameValues.gridSize);
+    createScores(gameValues.numberOfPlayers);
 }

@@ -26,6 +26,8 @@ header{
 }
 #outer{
     transition: all 0.5s;
+    width: 800px;
+    margin: auto;
 }
 .disappearing{
     opacity: 0;
@@ -102,4 +104,19 @@ header{
     height: 70px;
     border-radius: 50%;
     background-color: #FFF;
+}
+
+/* Scores */
+#scores{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+.score-outer{
+    display: flex;
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: space-between;
+    width: 120px;
 }
