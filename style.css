@@ -6,6 +6,7 @@
     --light-orange: rgb(235, 158, 85);
     --gray: rgb(163, 163, 163);
     --light-gray: rgb(179, 179, 179);
+    --white: #FFF;
 }
 *{
     box-sizing: border-box;
@@ -103,7 +104,7 @@ header{
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: #FFF;
+    background-color: var(--white);
 }
 
 /* Scores */
@@ -112,11 +113,29 @@ header{
     margin-top: 20px;
     justify-content: space-between;
 }
-.score-outer{
+.score-triangle{
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 8px solid var(--orange);
+    margin: auto;
+    visibility: hidden;
+}
+.score-inner{
     display: flex;
-    background-color: #FFF;
+    background-color: var(--white);
     border-radius: 5px;
     padding: 10px;
     justify-content: space-between;
     width: 120px;
+}
+.score-name{
+    font-weight: bold;
+}
+.score-active .score-triangle{
+    visibility: visible;
+}
+.score-active .score-inner{
+    background-color: var(--orange);
 }
