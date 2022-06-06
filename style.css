@@ -113,6 +113,11 @@ header{
     margin-top: 20px;
     justify-content: space-between;
 }
+#scores-single{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 .score-triangle{
     width: 0; 
     height: 0; 
