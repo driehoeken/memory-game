@@ -7,6 +7,9 @@
     --gray: rgb(163, 163, 163);
     --light-gray: rgb(179, 179, 179);
     --white: #FFF;
+    --card-active: rgb(238, 128, 26);
+    --card-revealed: rgb(187, 187, 187); 
+    --card-hidden: #FFF;
 }
 *{
     box-sizing: border-box;
@@ -100,13 +103,99 @@ header{
     gap: 10px;
     margin-bottom: 10px;
 }
+/* Cards */
 .card{
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: var(--white);
+    transition: all 0.25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+.card span{
+    color: var(--text-color);
+}
+.card-hidden{
+    background-color: var(--card-hidden);
+}
+.card-hidden span{
+    visibility: hidden;
+}
+/*
+.card-active{
+    background-color: var(--card-active);
+}
+.card-active span{
+    visibility: visible;
+}*/
+
+.card-active{
+    animation: hidden-to-active 0.5s linear;
+    background-color: var(--card-active);
 }
 
+.card-revealed{
+    background-color: var(--card-revealed);
+    animation: active-to-revealed 0.5s linear;
+}
+.card-revealed span{
+    visibility: visible;
+}
+.card-hiding{
+    transform: scaleX(0);
+}
+.card-hiding span{
+    visibility: hidden;
+}
+@keyframes hidden-to-active {
+    0%{
+        background-color: var(--card-hidden);
+    }
+    49% {
+        transform: scaleX(0);
+        background-color: var(--card-hidden);
+    }
+    50%{
+        background-color: var(--card-active);
+    }
+    51%{
+        transform: scaleX(0);
+        background-color: var(--card-active);
+    }
+    100% {
+        transform: scaleX(1);
+        background-color: var(--card-active);
+    }
+}
+
+@keyframes revealed-to-active {
+    100%{
+        background-color: var(--card-revealed);
+    }
+}
+
+@keyframes active-to-hidden {
+    0%{
+        background-color: var(--card-active);
+    }
+    49% {
+        transform: scaleX(0);
+        background-color: var(--card-active);
+    }
+    50%{
+        background-color: var(--card-hidden);
+    }
+    51%{
+        transform: scaleX(0);
+        background-color: var(--card-hidden);
+    }
+    100% {
+        transform: scaleX(1);
+        background-color: var(--card-hidden);
+    }
+}
 /* Scores */
 #scores{
     display: flex;
