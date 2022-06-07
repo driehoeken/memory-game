@@ -21,8 +21,22 @@ const createGrid = function(gridSize){
 
             //setting value to card to use it later
             card.setAttribute('data-value', value);
-            //card.innerHTML = `<span>${value}</span>`;
+            card.innerHTML = `<span>${value}</span>`;
             row.appendChild(card);
         }   
     }
 }
+//testing animations
+grid.addEventListener('click', (e) => {
+    if(e.target.closest('.card')){
+        const card = e.target.closest('.card');
+        if(card.classList.contains('card-hidden')){
+            card.classList.remove('card-hidden');
+            card.classList.add('card-active');
+        }
+        else{
+            card.classList.remove('card-active');
+            card.classList.add('card-hidden');
+        }
+    }
+});
