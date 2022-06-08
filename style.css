@@ -186,7 +186,10 @@ header{
     }
 }
 
-@keyframes revealed-to-active {
+@keyframes active-to-revealed {
+    0%{
+        background-color: var(--card-active);
+    }
     100%{
         background-color: var(--card-revealed);
     }

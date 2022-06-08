@@ -25,7 +25,8 @@ const createGrid = function(gridSize){
         }   
     }
 }
-//testing animations
+//animations
+/*
 grid.addEventListener('click', (e) => {
     if(e.target.closest('.card')){
         const card = e.target.closest('.card');
@@ -46,4 +47,4 @@ grid.addEventListener('click', (e) => {
             }, 500);
         }
     }
-});
+});*/
