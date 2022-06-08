@@ -29,13 +29,24 @@ header{
     margin: 40px 0 40px 0;
 }
 #outer{
-    transition: all 0.5s;
     width: 800px;
     margin: auto;
 }
+@keyframes outer-fade-in-out {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 .disappearing{
-    opacity: 0;
-    visibility: hidden;
+    /*opacity: 0;
+    visibility: hidden;*/
+    animation: outer-fade-in-out 0.5s;
 }
 .hidden{
     display: none;
@@ -118,26 +129,40 @@ header{
 }
 .card-hidden{
     background-color: var(--card-hidden);
-    animation: active-to-hidden 0.5s linear;
+    /*animation: active-to-hidden 0.5s linear;*/
 }
 .card-hidden span{
     visibility: hidden;
-    animation: span-active-to-hidden 0.5s linear;
+    /*animation: span-active-to-hidden 0.5s linear;*/
 }
 
 .card-active{
-    animation: hidden-to-active 0.5s linear;
     background-color: var(--card-active);
 }
 .card-active span{
     visibility: visible;
-    animation: span-hidden-to-active 0.5s linear;
 }
 .card-revealed{
     background-color: var(--card-revealed);
     animation: active-to-revealed 0.5s linear;
 }
 .card-revealed span{
+    visibility: visible;
+}
+.card-active-to-hidden{
+    animation: active-to-hidden 0.5s linear;
+    background-color: var(--card-hidden);
+}
+.card-active-to-hidden span{
+    animation: span-active-to-hidden 0.5s linear;
+    visibility: hidden;
+}
+.card-hidden-to-active{
+    animation: hidden-to-active 0.5s linear;
+    background-color: var(--card-active);
+}
+.card-hidden-to-active span{
+    animation: span-hidden-to-active 0.5s linear;
     visibility: visible;
 }
 @keyframes hidden-to-active {

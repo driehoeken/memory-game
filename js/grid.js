@@ -11,7 +11,6 @@ const createGrid = function(gridSize){
             const card = document.createElement('div');
             card.classList.add('card');
             card.classList.add('card-hidden');
-
             let value = randomInt(0, gridSize * gridSize / 2);
             //if value was used more than 1 time (so it was set 2 times arleady) it will set other value
             while (howManyInArr(usedValues, value) > 1) {
@@ -32,11 +31,19 @@ grid.addEventListener('click', (e) => {
         const card = e.target.closest('.card');
         if(card.classList.contains('card-hidden')){
             card.classList.remove('card-hidden');
-            card.classList.add('card-active');
+            card.classList.add('card-hidden-to-active');
+            setTimeout(() => {
+                card.classList.remove('card-hidden-to-active');
+                card.classList.add('card-active');    
+            }, 500);
         }
-        else{
+        else if(card.classList.contains('card-active')){
             card.classList.remove('card-active');
-            card.classList.add('card-hidden');
+            card.classList.add('card-active-to-hidden');
+            setTimeout(() => {
+                card.classList.remove('card-active-to-hidden');
+                card.classList.add('card-hidden');
+            }, 500);
         }
     }
 });
