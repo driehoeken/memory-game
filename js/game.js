@@ -11,8 +11,8 @@ const showGame = function(){
 }
 gameDiv.addEventListener('click', (e) => {
     const clicked = e.target.closest('.card');
-    console.log(clicked);
-    if(clicked !== undefined && clicked.classList.contains('card-hidden')){
+    console.log(isAnimation());
+    if(clicked !== undefined && clicked.classList.contains('card-hidden') && !isAnimation()){
         const value = clicked.getAttribute('data-value');
         cardAnimation(clicked);
         if(firstGuess === undefined){
@@ -20,7 +20,11 @@ gameDiv.addEventListener('click', (e) => {
             firstClicked = clicked;
         }
         else{
+            clicked.classList.add('card-animation-wait');
+            firstClicked.classList.add('card-animation-wait');
             setTimeout(() => {
+                clicked.classList.remove('card-animation-wait');
+                firstClicked.classList.remove('card-animation-wait');
                 if(value === firstGuess){
                     console.log('you are correct!');
                     clicked.classList.remove('card-active');
@@ -36,5 +40,6 @@ gameDiv.addEventListener('click', (e) => {
                 }
             }, 1000);
         }
+        console.log(`value: ${value} | firstValue: ${firstGuess}`);
     }
 });

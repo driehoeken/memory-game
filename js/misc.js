@@ -26,12 +26,13 @@ const randomInt = function(min, max){
 }
 
 const cardAnimation = function(card){
+    //isAnimation = true;
     if(card.classList.contains('card-hidden')){
         card.classList.remove('card-hidden');
         card.classList.add('card-hidden-to-active');
         setTimeout(() => {
             card.classList.remove('card-hidden-to-active');
-            card.classList.add('card-active');    
+            card.classList.add('card-active');  
         }, 500);
     }
     else if(card.classList.contains('card-active')){
@@ -43,3 +44,16 @@ const cardAnimation = function(card){
         }, 500);
     }
 };
+
+const isAnimation = function(){
+    if(document.querySelector('.card-active-to-hidden') !== null ||
+        document.querySelector('.card-hidden-to-active') !== null ||
+        document.querySelector('.card-active-to-revealed') !== null ||
+        document.querySelector('.card-animation-wait') !== null)
+        {
+            return true;
+        }
+    else{
+        return false;
+    }
+}
