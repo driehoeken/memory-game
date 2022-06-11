@@ -48,7 +48,6 @@ startBtn.addEventListener('click', () => {
         }
         //if there is no clicked btn in wrap
         else{
-            console.log('sth empty');
             message.textContent = `You have not chosen the ${wrapLabel.split('-').join(' ')}`;
             canPlay = false;
             break;

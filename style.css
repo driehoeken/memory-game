@@ -39,7 +39,6 @@ header{
     align-items: center;
     top: 150px;
     flex-direction: column;
-    cursor: pointer;
 }
 #play-again{
     border-radius: 5px;
@@ -48,6 +47,7 @@ header{
     color: var(--white);
     border: 0;
     padding: 10px;
+    cursor: pointer;
 }
 #outer{
     width: 800px;
@@ -82,7 +82,7 @@ header{
     background-color: var(--menu-bg-color);
     border-radius: 30px;
     padding: 30px;
-}
+}message
 #menu :first-child{
     margin-block-start: 0;
 }

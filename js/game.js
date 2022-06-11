@@ -6,12 +6,17 @@ let firstGuess;
 let firstClicked;
 let currentPlayer;
 let isEnded;
+let isSingle;
 
 const showGame = function(){
     createGrid(gameValues.gridSize);
     createScores(gameValues.numberOfPlayers);
     currentPlayer = 0;
     toggleActive(0);
+    gameValues.numberOfPlayers === '1' ? isSingle = true : isSingle = false;
+    if(isSingle){
+        startTime();
+    }
 }
 gameDiv.addEventListener('click', (e) => {
     isEnded = false;
@@ -43,7 +48,9 @@ gameDiv.addEventListener('click', (e) => {
                         firstClicked.classList.remove('card-active');
                         clicked.classList.add('card-revealed');
                         firstClicked.classList.add('card-revealed');
-                        addPoint(currentPlayer);
+                        if(!isSingle){
+                            addPoint(currentPlayer);
+                        }
                     }
                     //otherwise they will hide
                     else{
@@ -58,13 +65,18 @@ gameDiv.addEventListener('click', (e) => {
                     }
 
                     if(!isEnded){
-                        toggleActive(currentPlayer);
-                    
-                        currentPlayer++;
-                        if(currentPlayer >= gameValues.numberOfPlayers){
-                            currentPlayer = 0;
+                        if(!isSingle){
+                            toggleActive(currentPlayer);
+                        
+                            currentPlayer++;
+                            if(currentPlayer >= gameValues.numberOfPlayers){
+                                currentPlayer = 0;
+                            }
+                            toggleActive(currentPlayer);
                         }
-                        toggleActive(currentPlayer);
+                        else{
+                            addPoint(0);
+                        }
                     }
 
                 }, animTime * 2);
@@ -74,26 +86,32 @@ gameDiv.addEventListener('click', (e) => {
 });
 
 const endGame = function(){
-    let highest = 0;
-    let players = [];
     let textMessage = '';
-    for(let i = 0; i < gameValues.numberOfPlayers; i++){
-        const currentPoints = getPoints(i);
-        if(currentPoints > highest){
-            highest = currentPoints;
-            players = [i];
+    if(!isSingle){
+        let highest = 0;
+        let players = [];
+        
+
+        //getting players which have the most points
+        for(let i = 0; i < gameValues.numberOfPlayers; i++){
+            const currentPoints = getPoints(i);
+            if(currentPoints > highest){
+                highest = currentPoints;
+                players = [i];
+            }
+            else if(currentPoints === highest){
+                players.push(i);
+            }
         }
-        else if(currentPoints === highest){
-            players.push(i);
+        
+        for(const player of players){
+            textMessage += `player ${player}, `
         }
-        console.log(players);
-        console.log(highest);
+        textMessage = textMessage.slice(0, -2);
+        textMessage = textMessage.charAt(0).toUpperCase() + textMessage.slice(1);
+        showBox(`${textMessage} won!`);
     }
-    
-    for(const player of players){
-        textMessage += `player ${player}, `
+    else{
+        showBox(`You have ended with ${parseInt(document.querySelector('.score').textContent) + 1} moves in ${document.querySelector('.score-time').textContent}`)
     }
-    textMessage = textMessage.slice(0, -2);
-    textMessage = textMessage.charAt(0).toUpperCase() + textMessage.slice(1);
-    showBox(`${textMessage} won!`);
 };
