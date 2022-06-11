@@ -28,6 +28,26 @@ header{
     font-size: 40px;
     margin: 40px 0 40px 0;
 }
+#message-box{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: var(--white);
+    left: calc(50% - 150px);
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    top: 150px;
+    flex-direction: column;
+}
+#play-again{
+    border-radius: 5px;
+    background-color: var(--orange);
+    font-family: 'Varela Round', sans-serif;
+    color: var(--white);
+    border: 0;
+    padding: 10px;
+}
 #outer{
     width: 800px;
     margin: auto;
@@ -50,6 +70,9 @@ header{
 }
 .hidden{
     display: none;
+}
+.shown-flex{
+    display: flex;
 }
 /* Menu */
 #menu{

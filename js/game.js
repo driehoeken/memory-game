@@ -5,6 +5,7 @@ let gameValues = {};
 let firstGuess;
 let firstClicked;
 let currentPlayer;
+let isEnded;
 
 const showGame = function(){
     createGrid(gameValues.gridSize);
@@ -13,6 +14,7 @@ const showGame = function(){
     toggleActive(0);
 }
 gameDiv.addEventListener('click', (e) => {
+    isEnded = false;
     const clicked = e.target.closest('.card');
     if(clicked !== null && !isAnimation()){
         if(clicked.classList.contains('card-hidden')){
@@ -47,19 +49,30 @@ gameDiv.addEventListener('click', (e) => {
                     else{
                         cardAnimation(clicked, animTime);
                         cardAnimation(firstClicked, animTime);
-                        firstGuess = undefined;
+                    }
+                    firstGuess = undefined;
+                    //if there is no hidden or active cards it will end the game
+                    if(gameDiv.querySelector('.card-hidden') === null){
+                        endGame();
+                        isEnded = true;
                     }
 
-                    toggleActive(currentPlayer);
-                
-                    currentPlayer++;
-                    if(currentPlayer >= gameValues.numberOfPlayers){
-                        currentPlayer = 0;
+                    if(!isEnded){
+                        toggleActive(currentPlayer);
+                    
+                        currentPlayer++;
+                        if(currentPlayer >= gameValues.numberOfPlayers){
+                            currentPlayer = 0;
+                        }
+                        toggleActive(currentPlayer);
                     }
-                    toggleActive(currentPlayer);
 
                 }, animTime * 2);
             }
         }
     }
 });
+
+const endGame = function(){
+    console.log('game is ended');
+};
