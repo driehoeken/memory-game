@@ -25,7 +25,7 @@ const randomInt = function(min, max){
     return Math.floor(Math.random() * (max)) + min;
 }
 
-const cardAnimation = function(card){
+const cardAnimation = function(card, animTime){
     //isAnimation = true;
     if(card.classList.contains('card-hidden')){
         card.classList.remove('card-hidden');
@@ -41,7 +41,7 @@ const cardAnimation = function(card){
         setTimeout(() => {
             card.classList.remove('card-active-to-hidden');
             card.classList.add('card-hidden');
-        }, 500);
+        }, animTime);
     }
 };
 
