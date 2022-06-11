@@ -15,7 +15,7 @@ gameDiv.addEventListener('click', (e) => {
     console.log(isAnimation());
     if(clicked !== undefined && clicked.classList.contains('card-hidden') && !isAnimation()){
         const value = clicked.getAttribute('data-value');
-        cardAnimation(clicked);
+        cardAnimation(clicked, animTime);
         if(firstGuess === undefined){
             firstGuess = value;
             firstClicked = clicked;
@@ -41,8 +41,8 @@ gameDiv.addEventListener('click', (e) => {
                 //otherwise they will hide
                 else{
                     console.log('you are not correct :C');
-                    cardAnimation(clicked);
-                    cardAnimation(firstClicked);
+                    cardAnimation(clicked, animTime);
+                    cardAnimation(firstClicked, animTime);
                     firstGuess = undefined;
                 }
             }, animTime * 2);
