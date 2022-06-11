@@ -28,6 +28,9 @@ const createScores = function(players){
         scores.appendChild(time);
     }
 }
+const getPoints = function(index){
+    return parseInt(scores.children[index].querySelector('.score').textContent);
+}
 const toggleActive = function(index){
     scores.children[index].classList.toggle("score-active");
 }

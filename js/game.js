@@ -74,5 +74,26 @@ gameDiv.addEventListener('click', (e) => {
 });
 
 const endGame = function(){
-    console.log('game is ended');
+    let highest = 0;
+    let players = [];
+    let textMessage = '';
+    for(let i = 0; i < gameValues.numberOfPlayers; i++){
+        const currentPoints = getPoints(i);
+        if(currentPoints > highest){
+            highest = currentPoints;
+            players = [i];
+        }
+        else if(currentPoints === highest){
+            players.push(i);
+        }
+        console.log(players);
+        console.log(highest);
+    }
+    
+    for(const player of players){
+        textMessage += `player ${player}, `
+    }
+    textMessage = textMessage.slice(0, -2);
+    textMessage = textMessage.charAt(0).toUpperCase() + textMessage.slice(1);
+    showBox(`${textMessage} won!`);
 };

@@ -39,6 +39,7 @@ header{
     align-items: center;
     top: 150px;
     flex-direction: column;
+    cursor: pointer;
 }
 #play-again{
     border-radius: 5px;
