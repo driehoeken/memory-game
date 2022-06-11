@@ -5,6 +5,8 @@ const message = document.querySelector('#error-message');
 const menu = document.querySelector('#menu');
 const outer = document.querySelector('#outer');
 
+let canPlay;
+
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         const clickedBtn = e.target;
@@ -23,6 +25,7 @@ btns.forEach((btn) => {
 
 startBtn.addEventListener('click', () => {
     const result = {};
+    canPlay = true;
     for(const btnsWrap of btnsWraps){
         const chosenBtn = btnsWrap.querySelector('.clicked');
         const wrapLabel = btnsWrap.getAttribute('class').split(' ')[1];
@@ -42,14 +45,21 @@ startBtn.addEventListener('click', () => {
                 result[attrName] = parseInt(chosenBtn.textContent[0]);
             }
             message.textContent = ``;
+            console.log('this is fine');
         }
         //if there is no clicked btn in wrap
         else{
+            console.log('sth empty');
             message.textContent = `You have not chosen the ${wrapLabel.split('-').join(' ')}`;
+            canPlay = false;
             break;
         }
+        }
+
+        if(canPlay){
+            gameValues = result;
+            showGame();
+            disappearAppear(outer, menu, gameDiv, 500);
     };
-    gameValues = result;
-    showGame();
-    disappearAppear(outer, menu, gameDiv, 500);
+
 });
