@@ -9,7 +9,7 @@ const icons = {
     8: "backpack",
     9: "toys",
     10: "phishing",
-    11: "ice_skatin",
+    11: "ice_skating",
     12: "wifi",
     13: "storage",
     14: "bluetooth",

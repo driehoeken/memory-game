@@ -20,7 +20,12 @@ const createGrid = function(gridSize){
 
             //setting value to card to use it later
             card.setAttribute('data-value', value);
-            card.innerHTML = `<span>${value}</span>`;
+            if(gameValues.theme === "Numbers"){
+                card.innerHTML = `<span>${value}</span>`;
+            }
+            else{
+                card.innerHTML = `<span class="material-symbols-outlined">${icons[value + 1]}</span>`;
+            }
             row.appendChild(card);
         }   
     }
