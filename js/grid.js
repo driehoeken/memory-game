@@ -25,26 +25,3 @@ const createGrid = function(gridSize){
         }   
     }
 }
-//animations
-/*
-grid.addEventListener('click', (e) => {
-    if(e.target.closest('.card')){
-        const card = e.target.closest('.card');
-        if(card.classList.contains('card-hidden')){
-            card.classList.remove('card-hidden');
-            card.classList.add('card-hidden-to-active');
-            setTimeout(() => {
-                card.classList.remove('card-hidden-to-active');
-                card.classList.add('card-active');    
-            }, 500);
-        }
-        else if(card.classList.contains('card-active')){
-            card.classList.remove('card-active');
-            card.classList.add('card-active-to-hidden');
-            setTimeout(() => {
-                card.classList.remove('card-active-to-hidden');
-                card.classList.add('card-hidden');
-            }, 500);
-        }
-    }
-});*/
