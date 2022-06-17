@@ -9,11 +9,17 @@ let isEnded;
 let isSingle;
 
 const showGame = function(){
+    //creating ui
     createGrid(gameValues.gridSize);
     createScores(gameValues.numberOfPlayers);
+
+    //setting currentPlayer and toggle their status
     currentPlayer = 0;
     toggleActive(0);
+
     gameValues.numberOfPlayers === '1' ? isSingle = true : isSingle = false;
+    
+    //if single, it will start measure time
     if(isSingle){
         startTime();
     }
@@ -42,7 +48,7 @@ gameDiv.addEventListener('click', (e) => {
                     clicked.classList.remove('card-animation-wait');
                     firstClicked.classList.remove('card-animation-wait');
 
-                    //if the player is right it will change the class of clicked cards
+                    //if the player is right it will change the class of clicked cards to revealed
                     if(value === firstGuess){
                         clicked.classList.remove('card-active');
                         firstClicked.classList.remove('card-active');
@@ -63,17 +69,20 @@ gameDiv.addEventListener('click', (e) => {
                         endGame();
                         isEnded = true;
                     }
-
+                    //if game is not ended, it will change active player
                     if(!isEnded){
                         if(!isSingle){
                             toggleActive(currentPlayer);
                         
                             currentPlayer++;
+
+                            //if current player does not fit in numberOfPlayers, it will change the current player to the first
                             if(currentPlayer >= gameValues.numberOfPlayers){
                                 currentPlayer = 0;
                             }
                             toggleActive(currentPlayer);
                         }
+                        //if it is single mode it will add the move to score
                         else{
                             addPoint(0);
                         }
@@ -92,7 +101,7 @@ const endGame = function(){
         let players = [];
         
 
-        //getting players which have the most points
+        //getting players which have the most points in case if there is few players who have the same no. of points
         for(let i = 0; i < gameValues.numberOfPlayers; i++){
             const currentPoints = getPoints(i);
             if(currentPoints > highest){
@@ -111,6 +120,8 @@ const endGame = function(){
         textMessage = textMessage.charAt(0).toUpperCase() + textMessage.slice(1);
         showBox(`${textMessage} won!`);
     }
+
+    //if there is one player, it will show no. of moves and time
     else{
         showBox(`You have ended with ${parseInt(document.querySelector('.score').textContent) + 1} moves in ${document.querySelector('.score-time').textContent}`)
     }

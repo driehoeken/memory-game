@@ -20,9 +20,12 @@ const createGrid = function(gridSize){
 
             //setting value to card to use it later
             card.setAttribute('data-value', value);
+
+            //if theme is number we will just use number
             if(gameValues.theme === "Numbers"){
                 card.innerHTML = `<span>${value}</span>`;
             }
+            //if not we will use icons from icons.js
             else{
                 card.innerHTML = `<span class="material-symbols-outlined">${icons[value + 1]}</span>`;
             }

@@ -2,7 +2,8 @@ const scores = document.querySelector('#scores');
 
 const createScores = function(players){
     players = parseInt(players);
-    if(players !== 1){
+    //if there is more than 1 player, it will create score div for all of them
+    if(players > 1){
         for(let i = 0; i < players; i++){
             const score = document.createElement('div');
             score.classList.add('score-outer');
@@ -11,8 +12,9 @@ const createScores = function(players){
             scores.appendChild(score);
         }
     }
-    //if someone wants to play alone, it will show no of turns and time
+    //if someone wants to play alone, it will show no. of turns and time
     else{
+        //score div
         scores.id = 'scores-single';
         console.log('singleplayer');
         const score = document.createElement('div');
@@ -21,6 +23,7 @@ const createScores = function(players){
         score.innerHTML = scoreInner;
         scores.appendChild(score);
 
+        //time div
         const time = document.createElement('div');
         time.classList.add('score-outer');
         const timeInner = `<div class='score-inner'><div class='score-name'>Time</div><div class='score-time'>0:00</div></div>`;
@@ -28,16 +31,21 @@ const createScores = function(players){
         scores.appendChild(time);
     }
 }
+
+//getting how many points player has
 const getPoints = function(index){
     return parseInt(scores.children[index].querySelector('.score').textContent);
 }
+//toggle status of player(is it their turn or not)
 const toggleActive = function(index){
     scores.children[index].classList.toggle("score-active");
 }
+//adding point for a player
 const addPoint = function(index){
     const scorePoints = scores.children[index].querySelector('.score');
     scorePoints.textContent = parseInt(scorePoints.textContent) + 1;
 }
+//starting timer in singleplayer
 const startTime = function(){
     const timeDiv = document.querySelector('.score-time');
     setInterval(() => {

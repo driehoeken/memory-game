@@ -153,11 +153,9 @@ header{
 }
 .card-hidden{
     background-color: var(--card-hidden);
-    /*animation: active-to-hidden 0.5s linear;*/
 }
 .card-hidden span{
     visibility: hidden;
-    /*animation: span-active-to-hidden 0.5s linear;*/
 }
 
 .card-active{

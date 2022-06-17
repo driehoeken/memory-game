@@ -1,3 +1,4 @@
+//making two elements in some outer dissappear and appear
 const disappearAppear = function(outer, elToDis, elToApp, time){
     if(!elToDis.classList.contains('hidden') && elToApp.classList.contains('hidden')){
         outer.classList.add('disappearing');
@@ -25,8 +26,8 @@ const randomInt = function(min, max){
     return Math.floor(Math.random() * (max)) + min;
 }
 
+//animating card
 const cardAnimation = function(card, animTime){
-    //isAnimation = true;
     if(card.classList.contains('card-hidden')){
         card.classList.remove('card-hidden');
         card.classList.add('card-hidden-to-active');
@@ -45,6 +46,7 @@ const cardAnimation = function(card, animTime){
     }
 };
 
+//checking if there are card which is being animated
 const isAnimation = function(){
     if(document.querySelector('.card-active-to-hidden') !== null ||
         document.querySelector('.card-hidden-to-active') !== null ||

@@ -25,12 +25,15 @@ btns.forEach((btn) => {
 
 startBtn.addEventListener('click', () => {
     const result = {};
+    //we are assuming that player picked all of options
     canPlay = true;
+    //for every wrap we will check if all of options are chosen
     for(const btnsWrap of btnsWraps){
         const chosenBtn = btnsWrap.querySelector('.clicked');
         const wrapLabel = btnsWrap.getAttribute('class').split(' ')[1];
+        //if chosenBtn exists (so player picked sth)
         if(chosenBtn !== null){
-            //convert from xxxx-yyy-zzzzz to xxxxYyyZzzzz
+            //convert label from xxxx-yyy-zzzzz to xxxxYyyZzzzz
             const attrName = wrapLabel.split('-').map((word, index) => {
                 if(index != 0){
                     return(word.charAt(0).toUpperCase() + word.substring(1).toLowerCase());
@@ -41,6 +44,7 @@ startBtn.addEventListener('click', () => {
             }).join('');
             result[attrName] = chosenBtn.textContent;
             
+            //converting grid isze from '5x5' to 5 (int)
             if(attrName === 'gridSize'){
                 result[attrName] = parseInt(chosenBtn.textContent[0]);
             }
